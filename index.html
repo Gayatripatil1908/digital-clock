@@ -53,11 +53,24 @@
             const date = new Date();
 
             let hours = date.getHours();
-            hours = hours>12 ? hours-12 : hours
-            let minutes = date.getMinutes();
-            let seconds = date.getSeconds();
+            hours = hours>12 ? hours-12 : hours;
+            hours = hours < 10 ? "0"+hours : hours;
 
+            let minutes = date.getMinutes();
+            minutes = minutes < 10 ? "0"+minutes : minutes;
+
+
+            let seconds = date.getSeconds();
+            seconds = seconds < 10 ? "0"+seconds : seconds;
+
+            let ampm = hours >= 12 ? "PM" : "AM";
+
+            hourElement.innerHTML = hours;
+            minuteElement.innerHTML = minutes;
+            secondElement.innerHTML = seconds;
         }
+        setInterval(loadClock, 1000);
+
 
     </script>
 </body>
